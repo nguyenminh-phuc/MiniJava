@@ -42,6 +42,16 @@
                         expand: true
                     },
                     {
+                        src: "node_modules/highlight.js/build/highlight.pack.js",
+                        dest: "wwwroot/lib/highlight.js/highlight.pack.js"
+                    },
+                    {
+                        cwd: "node_modules/highlight.js/src/styles",
+                        src: "**/*",
+                        dest: "wwwroot/lib/highlight.js/styles",
+                        expand: true
+                    },
+                    {
                         cwd: "node_modules/jquery/dist",
                         src: "**/*",
                         dest: "wwwroot/lib/jquery",

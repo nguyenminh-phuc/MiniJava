@@ -22,10 +22,14 @@
     "popper.js": "^1.12.9"
   },
   "devDependencies": {
+    "highlight.js": "git+https://github.com/isagalaev/highlight.js.git",
     "grunt": "^1.0.1",
     "grunt-contrib-clean": "^1.1.0",
     "grunt-contrib-uglify-es": "git+https://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-copy": "^1.0.0"
+  },
+  "scripts": {
+    "postinstall": "cd ./node_modules/highlight.js && npm i && node ./tools/build.js java fsharp"
   }
 }
