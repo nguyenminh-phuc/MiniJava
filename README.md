@@ -2,6 +2,8 @@
 
 ### [**Playground**](http://minijava.azurewebsites.net/ "Try MiniJava")
 
+![GUI](gui.png "GUI")
+
 MiniJava is a [small subset](#grammar) of Java.
 
 The meaning of a MiniJava program is given by its meaning as a Java program.
