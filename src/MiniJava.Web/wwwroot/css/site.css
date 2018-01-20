@@ -1,7 +1,5 @@
 ﻿body { padding-top: 5rem; }
 
-textarea { width: 100%; }
-
 .badge {
     background-color: #868e96;
     border-radius: 10rem;
@@ -22,5 +20,3 @@ textarea { width: 100%; }
     min-height: 400px;
     padding-bottom: 1em;
 }
-
-#hidden-source, #hidden-ast, #hidden-il { display: none; }

@@ -9,17 +9,17 @@
         <div class="col-md-4">
             <h3>Source Code</h3>
             <div id="editor" data-name="source" data-request-url="@Url.Action("ParseSource", "Home")"></div>
-            <textarea id="hidden-source" name="source">@Model.Item.Source</textarea>
+            <textarea id="hidden-source" name="source" hidden>@Model.Item.Source</textarea>
         </div>
         <div class="col-md-4">
             <h3>Abstract Syntax Tree</h3>
             <div id="ast"></div>
-            <textarea id="hidden-ast">@Model.Item.Ast</textarea>
+            <textarea id="hidden-ast" hidden>@Model.Item.Ast</textarea>
         </div>
         <div class="col-md-4">
             <h3>Common Intermediate Language</h3>
             <div id="il"></div>
-            <textarea id="hidden-il">@Model.Item.Il</textarea>
+            <textarea id="hidden-il" hidden>@Model.Item.Il</textarea>
         </div>
     </div>
     <div class="row mb-3">

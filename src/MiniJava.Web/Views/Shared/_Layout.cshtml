@@ -16,11 +16,20 @@
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"/>
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="visible"
+              asp-fallback-test-property="visibility"
+              asp-fallback-test-value="visible"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-              asp-fallback-href="~/lib/font-awesome/css/font-awesome.min.css"/>
+              asp-fallback-href="~/lib/font-awesome/css/font-awesome.min.css"
+              asp-fallback-test-class="fa"
+              asp-fallback-test-property="display"
+              asp-fallback-test-value="inline-block"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css"
-              asp-fallback-href="~/js/highlight.js/styles/vs.css"/>
+              asp-fallback-href="~/js/highlight.js/styles/vs.css"
+              asp-fallback-test-class="hljs"
+              asp-fallback-test-property="display"
+              asp-fallback-test-value="block"/>
         <link rel="stylesheet" href="~/css/site.min.css"/>
     </environment>
 </head>
@@ -60,17 +69,23 @@
 </environment>
 <environment names="Staging,Production">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            asp-fallback-src="~/lib/jquery/jquery.slim.min.js"></script>
+            asp-fallback-src="~/lib/jquery/jquery.slim.min.js"
+            asp-fallback-test="window.$"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            asp-fallback-src="~/lib/popper.js/umd/popper.js"></script>
+            asp-fallback-src="~/lib/popper.js/umd/popper.js"
+            asp-fallback-test="window.Popper"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
-            asp-fallback-src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+            asp-fallback-src="~/lib/bootstrap/js/bootstrap.min.js"
+            asp-fallback-test="window.$.fn.modal"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"
-            asp-fallback-src="~/lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+            asp-fallback-src="~/lib/bootstrap-treeview/bootstrap-treeview.min.js"
+            asp-fallback-test="window.$.fn.treeview"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"
-            asp-fallback-src="~/lib/ace-builds/src-min-noconflict/ace.js"></script>
+            asp-fallback-src="~/lib/ace-builds/src-min-noconflict/ace.js"
+            asp-fallback-test="window.ace"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
-            asp-fallback-src="~/lib/highlight.js/highlight.pack.js"></script>
+            asp-fallback-src="~/lib/highlight.js/highlight.pack.js"
+            asp-fallback-test="window.hljs"></script>
     <script src="~/js/site.min.js"></script>
 </environment>
 
