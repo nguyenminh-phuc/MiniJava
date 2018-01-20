@@ -1,0 +1,69 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "comfyneet";
+    ViewData["Home"] = "active";
+}
+
+<form method="post" enctype="multipart/form-data" asp-action="DownloadSource" asp-controller="Home" class="container-fluid">
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <h3>Source Code</h3>
+            <div id="editor" data-name="source" data-request-url="@Url.Action("ParseSource", "Home")"></div>
+            <textarea id="hidden-source" name="source">@Model.Item.Source</textarea>
+        </div>
+        <div class="col-md-4">
+            <h3>Abstract Syntax Tree</h3>
+            <div id="ast"></div>
+            <textarea id="hidden-ast">@Model.Item.Ast</textarea>
+        </div>
+        <div class="col-md-4">
+            <h3>Common Intermediate Language</h3>
+            <div id="il"></div>
+            <textarea id="hidden-il">@Model.Item.Il</textarea>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <h3>Options</h3>
+            <div class="form-group row">
+                <label for="sample-names" class="col-md-2 col-form-label">Samples</label>
+                <div class="col-md-10">
+                    <select id="sample-names" class="custom-select" name="sampleName" data-request-url="@Url.Action("SelectSample", "Home")">
+                        <option value="" selected>select a sample</option>
+                        @foreach (var name in Model.SampleNames)
+                        {
+                            <option value="@name">@name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="timer" class="col-md-2 col-form-label">GC Interval Timer</label>
+                <div class="col-md-10 input-group">
+                    <input id="timer" name="timer" type="text" class="form-control" value="@Model.Item.Timer">
+                    <div class="input-group-append">
+                        <span class="input-group-text">milliseconds</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input id="submit" type="submit" class="btn btn-primary" value="Generate .NET assembly"/>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>Console</h3>
+            <textarea id="console" class="form-control mb-3" rows="4">@Model.Item.PrintfnLog</textarea>
+            <div id="error"></div>
+        </div>
+    </div>
+</form>
+
+@section scripts {
+    <script>
+        (function() {
+            "use strict";
+
+            home.init();
+        })();
+    </script>
+}

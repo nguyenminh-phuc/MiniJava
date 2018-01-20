@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="MiniJava - An interpreter and code generator for a subset of the Java programming language.">
+    <meta name="author" content="comfyneet">
+
+    <title>MiniJava - @ViewData["Title"]</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css"/>
+        <link rel="stylesheet" href="~/js/highlight.js/styles/vs.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+              asp-fallback-href="~/lib/font-awesome/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css"
+              asp-fallback-href="~/js/highlight.js/styles/vs.css"/>
+        <link rel="stylesheet" href="~/css/site.min.css"/>
+    </environment>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" asp-controller="Home" asp-action="Index">MiniJava</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbars">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link @ViewData["Home"]" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link @ViewData["ReferenceManual"]" asp-controller="ReferenceManual" asp-action="Index">Reference Manual</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/comfyneet/MiniJava"><i class="fa fa-github"></i> GitHub</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+@RenderBody()
+
+<environment names="Development">
+    <script src="~/lib/jquery/jquery.slim.js"></script>
+    <script src="~/lib/popper.js/umd/popper.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script src="~/lib/ace-builds/src-noconflict/ace.js"></script>
+    <script src="~/js/highlight.js/highlight.pack.js"></script>
+    <script src="~/js/site.js"></script>
+</environment>
+<environment names="Staging,Production">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            asp-fallback-src="~/lib/jquery/jquery.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            asp-fallback-src="~/lib/popper.js/umd/popper.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"
+            asp-fallback-src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"
+            asp-fallback-src="~/lib/bootstrap-treeview/bootstrap-treeview.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.9/ace.js"
+            asp-fallback-src="~/lib/ace-builds/src-min-noconflict/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"
+            asp-fallback-src="~/js/highlight.js/highlight.pack.js"></script>
+    <script src="~/js/site.min.js"></script>
+</environment>
+
+@RenderSection("scripts", false)
+
+</body>
+</html>

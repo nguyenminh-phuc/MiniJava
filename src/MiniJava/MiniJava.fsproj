@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Utils.fs" />
+    <Compile Include="Token.fs" />
+    <Compile Include="Input.fs" />
+    <Compile Include="Lexer.fs" />
+    <Compile Include="Ast.fs" />
+    <Compile Include="Parser.fs" />
+    <Compile Include="SymbolTable.fs" />
+    <Compile Include="SymbolCollector.fs" />
+    <Compile Include="TypeChecker.fs" />
+    <Compile Include="VariableInitializationChecker.fs" />
+    <Compile Include="Environment.fs" />
+    <Compile Include="Interpreter.fs" />
+    <Compile Include="IL.fs" />
+    <Compile Include="ILBuilder.fs" />
+    <Compile Include="CodeGenerator.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mono.Cecil" Version="0.10.0-beta7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="4.2.3" />
+  </ItemGroup>
+
+</Project>

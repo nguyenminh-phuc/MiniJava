@@ -1,0 +1,26 @@
+﻿body { padding-top: 5rem; }
+
+textarea { width: 100%; }
+
+.badge {
+    background-color: #868e96;
+    border-radius: 10rem;
+    color: #fff;
+    float: right;
+    padding-left: .6em;
+    padding-right: .6em;
+}
+
+.container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#editor {
+    font-size: 1em;
+    height: 100%;
+    min-height: 400px;
+    padding-bottom: 1em;
+}
+
+#hidden-source, #hidden-ast, #hidden-il { display: none; }

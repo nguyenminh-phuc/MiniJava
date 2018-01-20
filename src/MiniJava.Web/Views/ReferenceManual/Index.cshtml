@@ -1,0 +1,278 @@
+﻿@{
+    ViewData["Title"] = "Reference Manual";
+    ViewData["ReferenceManual"] = "active";
+}
+
+<div class="container">
+<div>
+    <h3>Overview</h3>
+    <p>MiniJava is a <a href="#Grammar">small subset</a> of Java.</p>
+    <p>
+        The meaning of a MiniJava program is given by its meaning as a Java program.
+        Overloading is not allowed in MiniJava. The MiniJava statement <code>System.out.println(expr);</code> can only print integers.
+        The MiniJava expression <code>expr.length</code> only applies to expressions of type <code>int[]</code>.
+    </p>
+    <p>The program operates in four main stages:</p>
+    <ol>
+        <li>Parse source file to generate a syntax tree, report any syntax errors.</li>
+        <li>Traverse the syntax tree, building a symbol table and reporting any semantic errors.</li>
+        <li>Interpret and print the results to console.</li>
+        <li>Generate CIL (MSIL) bytecode.</li>
+    </ol>
+</div>
+
+<div>
+    <h3 id="Grammar">Grammar</h3>
+    <table class="mb-3">
+        <tbody>
+        <tr>
+            <td class="text-right">
+                <a id="Program">Program</a>
+            </td>
+            <td class="text-center">::=</td>
+
+            <td class="text-left"><a href="#MainClass">MainClass</a> ( <a href="#ClassDeclaration">ClassDeclaration</a> )* &lt;EOF&gt;</td>
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="MainClass">MainClass</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left">"class" <a href="#Identifier">Identifier</a> "{" "public" "static" "void" "main" "(" "String" "[" "]" <a href="#Identifier">Identifier</a> ")" "{" <a href="#Statement">Statement</a> "}" "}"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="ClassDeclaration">ClassDeclaration</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left">"class" <a href="#Identifier">Identifier</a> ( "extends" <a href="#Identifier">Identifier</a> )? "{" ( <a href="#VarDeclaration">VarDeclaration</a> )* ( <a href="#MethodDeclaration">MethodDeclaration</a> )* "}"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="VarDeclaration">VarDeclaration</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left"><a href="#Type">Type</a> <a href="#Identifier">Identifier</a> ";"</td>
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="MethodDeclaration">MethodDeclaration</a>
+            </td>
+            <td class="text-center">::=</td>
+
+            <td class="text-left">"public" <a href="#Type">Type</a> <a href="#Identifier">Identifier</a> "(" ( <a href="#Type">Type</a> <a href="#Identifier">Identifier</a> ( "," <a href="#Type">Type</a> <a href="#Identifier">Identifier</a> )* )? ")" "{" ( <a href="#VarDeclaration">VarDeclaration</a> )* ( <a href="#Statement">Statement</a> )* "return" <a href="#Expression">Expression</a> ";" "}"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="Type">Type</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left">"int" "[" "]"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"boolean"</td>
+        </tr>
+        <tr>
+
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"int"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">
+                <a href="#Identifier">Identifier</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="Statement">Statement</a>
+            </td>
+            <td class="text-center">::=</td>
+
+            <td class="text-left">"{" ( <a href="#Statement">Statement</a> )* "}"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"if" "(" <a href="#Expression">Expression</a> ")" <a href="#Statement">Statement</a> "else" <a href="#Statement">Statement</a></td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"while" "(" <a href="#Expression">Expression</a> ")" <a href="#Statement">Statement</a></td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"System.out.println" "(" <a href="#Expression">Expression</a> ")" ";"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left"><a href="#Identifier">Identifier</a> "=" <a href="#Expression">Expression</a> ";"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+
+            <td class="text-left"><a href="#Identifier">Identifier</a> "[" <a href="#Expression">Expression</a> "]" "=" <a href="#Expression">Expression</a> ";"</td>
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="Expression">Expression</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left"><a href="#Expression">Expression</a> ( "&amp;&amp;" | "&lt;" | "+" | "-" | "*" ) <a href="#Expression">Expression</a></td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left"><a href="#Expression">Expression</a> "[" <a href="#Expression">Expression</a> "]"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+
+            <td class="text-left"><a href="#Expression">Expression</a> "." "length"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left"><a href="#Expression">Expression</a> "." <a href="#Identifier">Identifier</a> "(" ( <a href="#Expression">Expression</a> ( "," <a href="#Expression">Expression</a> )* )? ")"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">&lt;INTEGER_LITERAL&gt;</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"true"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+
+            <td class="text-center">|</td>
+            <td class="text-left">"false"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">
+                <a href="#Identifier">Identifier</a>
+            </td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"this"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"new" "int" "[" <a href="#Expression">Expression</a> "]"</td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"new" <a href="#Identifier">Identifier</a> "(" ")"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"!" <a href="#Expression">Expression</a></td>
+        </tr>
+        <tr>
+            <td class="text-right"></td>
+            <td class="text-center">|</td>
+            <td class="text-left">"(" <a href="#Expression">Expression</a> ")"</td>
+
+        </tr>
+        <tr>
+            <td class="text-right">
+                <a id="Identifier">Identifier</a>
+            </td>
+            <td class="text-center">::=</td>
+            <td class="text-left">&lt;IDENTIFIER&gt;</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h3>Lexical Issues</h3>
+    <dl class="mb-3">
+        <dt>Identifiers</dt>
+        <dd>An identifier is a sequence of letters, digits, and underscores, starting with a letter. Uppercase letters are distinguished from lowercase.</dd>
+
+        <dt>Integer literals</dt>
+        <dd>A sequence of decimal digits is an integer constant that denotes the corresponding integer value.</dd>
+
+        <dt>Comments</dt>
+        <dd>A comment may appear between any two tokens. There are two forms of comments: one starts with /*, ends with */; another begins with // and goes to the end of the line.</dd>
+    </dl>
+</div>
+
+<div>
+    <h3>Sample Program</h3>
+    <pre><code class="java">class Factorial {
+    public static void main(String[] a) {
+        System.out.println(new Fac().ComputeFac(10));
+    }
+}
+
+class Fac {
+    public int ComputeFac(int num) {
+        int num_aux;
+
+        if (num &lt; 1) num_aux = 1;
+        else num_aux = num * (this.ComputeFac(num - 1));
+
+        return num_aux;
+    }
+}</code></pre>
+</div>
+
+<div>
+    <h3>Usage</h3>
+    <pre><code class="fsharp">let source = "&lt;MiniJava source code&gt;"
+let result =
+    Utils.result {
+        let input = Input.create source
+        let! tokens = Lexer.tokenize input
+        let! program = Parser.parse tokens
+        let! symbolTable = SymbolCollector.create program
+        let! _ = TypeChecker.check symbolTable program
+        let! _ = VariableInitializationChecker.check program
+        let env = Environment.create symbolTable program (printfn "%d") 1000L
+        let! newEnv = Interpreter.interpret env
+        let! assembly = ILBuilder.build symbolTable program
+        let! app = CodeGenerator.generate assembly
+        return newEnv, assembly, app
+    }</code></pre>
+</div>
+</div>
+
+@section scripts {
+    <script>
+        (function() {
+            "use strict";
+
+            window.hljs.initHighlightingOnLoad();
+        })();
+    </script>
+}

@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MiniJava", "src\MiniJava\MiniJava.fsproj", "{A9CCA027-744B-420C-81A3-8F5B9A7C54F9}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MiniJava.Console", "src\MiniJava.Console\MiniJava.Console.fsproj", "{BC111542-7436-44F5-A876-E8957DF8E2A0}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MiniJava.Tests", "tests\MiniJava.Tests\MiniJava.Tests.fsproj", "{241BC6C5-6038-40A9-95F3-AE6837DB8303}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniJava.Web", "src\MiniJava.Web\MiniJava.Web.csproj", "{5557E78C-7CAE-434F-9A00-571883793E11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6C49B83-3ED0-4025-9D6F-4281028AF5EA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9604D929-8DA7-434D-8B0B-20A01AE6DBAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{AD93CC6D-1119-43D8-876B-F8A9CD8F4B29}"
+	ProjectSection(SolutionItems) = preProject
+		resources\Factorial.java = resources\Factorial.java
+		resources\Factorial.txt = resources\Factorial.txt
+		resources\Fibonacci.java = resources\Fibonacci.java
+		resources\Fibonacci.txt = resources\Fibonacci.txt
+		resources\Fibonacci2.java = resources\Fibonacci2.java
+		resources\Fibonacci2.txt = resources\Fibonacci2.txt
+		resources\TreeVisitor.java = resources\TreeVisitor.java
+		resources\TreeVisitor.txt = resources\TreeVisitor.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9CCA027-744B-420C-81A3-8F5B9A7C54F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CCA027-744B-420C-81A3-8F5B9A7C54F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9CCA027-744B-420C-81A3-8F5B9A7C54F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9CCA027-744B-420C-81A3-8F5B9A7C54F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC111542-7436-44F5-A876-E8957DF8E2A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC111542-7436-44F5-A876-E8957DF8E2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC111542-7436-44F5-A876-E8957DF8E2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC111542-7436-44F5-A876-E8957DF8E2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241BC6C5-6038-40A9-95F3-AE6837DB8303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241BC6C5-6038-40A9-95F3-AE6837DB8303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241BC6C5-6038-40A9-95F3-AE6837DB8303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241BC6C5-6038-40A9-95F3-AE6837DB8303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5557E78C-7CAE-434F-9A00-571883793E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5557E78C-7CAE-434F-9A00-571883793E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5557E78C-7CAE-434F-9A00-571883793E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5557E78C-7CAE-434F-9A00-571883793E11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A9CCA027-744B-420C-81A3-8F5B9A7C54F9} = {F6C49B83-3ED0-4025-9D6F-4281028AF5EA}
+		{BC111542-7436-44F5-A876-E8957DF8E2A0} = {F6C49B83-3ED0-4025-9D6F-4281028AF5EA}
+		{241BC6C5-6038-40A9-95F3-AE6837DB8303} = {9604D929-8DA7-434D-8B0B-20A01AE6DBAE}
+		{5557E78C-7CAE-434F-9A00-571883793E11} = {F6C49B83-3ED0-4025-9D6F-4281028AF5EA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CDD2621-A04C-4374-812C-41C223DA22B9}
+	EndGlobalSection
+EndGlobal

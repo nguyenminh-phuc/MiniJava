@@ -1,0 +1,31 @@
+{
+  "name": "minijava",
+  "description": "MiniJava is a subset of Java",
+  "version": "1.0.0",
+  "homepage": "https://github.com/comfyneet/MiniJava",
+  "author": {
+    "name": "Nguyen Minh Phuc",
+    "email": "comfyneet@gmail.com",
+    "web": "https://github.com/comfyneet"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/comfyneet/MiniJava.git"
+  },
+  "dependencies": {
+    "ace-builds": "^1.2.9",
+    "bootstrap": "^4.0.0",
+    "bootstrap-treeview": "^1.2.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.12.9"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-uglify-es": "git+https://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-copy": "^1.0.0"
+  }
+}
